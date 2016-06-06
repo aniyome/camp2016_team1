@@ -1,1 +1,1 @@
-# camp2016_team1
+camp2016_team1のGithubリポジトリ
