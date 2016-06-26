@@ -3,25 +3,34 @@ using System.Collections;
 
 public class CharacterStatus : MonoBehaviour {
 
-	// プレイヤーのHP
-	public int HP = 100;
+	// 最大HP
+	public float MaxHP = 100;
 
-	// プレイヤーの最大HP
-	public int MaxHP = 100;
+	// 最大MP
+	public float MaxMP = 100;
 
-	// プレイヤーのMP
-	public int MP = 100;
+	// HP
+	private float HP;
 
-	// プレイヤーの最大MP
-	public int MaxMP = 100;
+	// MP
+	private float MP;
 
 	// Use this for initialization
 	void Start () {
-	
+		HP = MaxHP;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+	}
+
+	// ダメージ加算処理
+	public void Damage (float damage) {
+		HP = HP - damage;
+		// HPが無くなった場合の処理
+		if (HP <= 0) {
+			Destroy(gameObject);
+		}
 	}
 }

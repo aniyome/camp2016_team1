@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour {
     // EnemyならDamage
     if (other.tag == "Enemy") {
         // (関数名, 値)
-        // other.SendMessage("Damage", damage);
+        other.SendMessage("Damage", damage);
         Debug.Log("Enemy");
     }
   }
