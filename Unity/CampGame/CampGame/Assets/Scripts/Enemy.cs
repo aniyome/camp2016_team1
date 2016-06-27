@@ -7,7 +7,10 @@ public class Enemy : MonoBehaviour {
 	public GameObject player;
 
 	// 移動スピード
-	public float speed;
+	public float nomalSpeed;
+
+	// プレイヤーに近づくスピード
+	public float aproachSpeed;
 
 	// 曲がる速さ
 	public float rotationSmooth;
@@ -27,8 +30,12 @@ public class Enemy : MonoBehaviour {
 	// プレイヤーの位置情報
 	private Vector3 playerPosition;
 
+	// 現在の移動速度
+	private float speed;
+
 	public void Start() {
 		targetPosition = GetRandomPositionOnLevel();
+		speed = nomalSpeed;
 	}
 
 	public void Update() {
@@ -36,10 +43,16 @@ public class Enemy : MonoBehaviour {
 		// 主人公との距離取得
 		float playerDistance = Vector3.Distance(player.transform.position, transform.position);
 
+<<<<<<< 5958dd7885d23959499e7498e3fd899fbf2c776b
 		// Debug.Log (approachPlayerDistance);
 
+=======
+>>>>>>> FPSControllerにステータスを追加
 		// 主人公との距離が近ければ、主人公に向かっていく
 		if (playerDistance < approachPlayerDistance) {
+			// 急速に近づく
+			speed = aproachSpeed;
+
 			// 目標地点の方向を向く
 			Quaternion targetRotation = Quaternion.LookRotation (player.transform.position - transform.position);
 			transform.rotation = Quaternion.Slerp (transform.rotation, targetRotation, Time.deltaTime * rotationSmooth);
@@ -47,6 +60,8 @@ public class Enemy : MonoBehaviour {
 			// 前方に進む
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		} else {
+			// 通常速度に戻る
+			speed = nomalSpeed;
 
 			// 目標地点との距離が小さければ、次のランダムな目標地点を設定する
 			float sqrDistanceToTarget = Vector3.SqrMagnitude (transform.position - targetPosition);
@@ -68,4 +83,5 @@ public class Enemy : MonoBehaviour {
 	public Vector3 GetRandomPositionOnLevel() {
 		return new Vector3(Random.Range(-levelSize, levelSize), 0, Random.Range(-levelSize, levelSize));
 	}
+
 }

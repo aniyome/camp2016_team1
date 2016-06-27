@@ -10,6 +10,9 @@ public class CharacterStatus : MonoBehaviour {
 	// 最大MP
 	public float MaxMP = 100;
 
+	// 攻撃力
+	public float Attack = 10;
+
 	// HP
 	private float HP;
 
@@ -44,11 +47,19 @@ public class CharacterStatus : MonoBehaviour {
 		// HPバーの値減少処理
 		slider.value = HP / MaxHP;
 
-		Debug.Log ("残りゲージは" + slider.value);
-		Debug.Log ("残りHPは" + HP);
-
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
+			Destroy(gameObject);
+		}
+	}
+
+	// 接触判定(接触オブジェクト)
+	void OnTriggerEnter (Collider other) {
+
+		// EnemyならDamage
+		if (other.tag == "Player") {
+			// (関数名, 値)
+			other.SendMessage("Damage", Attack);
 			Destroy(gameObject);
 		}
 	}
