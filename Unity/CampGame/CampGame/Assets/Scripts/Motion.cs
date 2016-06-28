@@ -34,6 +34,8 @@ public class Motion : MonoBehaviour {
   public float backwardSpeed = 7.0f;
   // 旋回速度
   public float rotateSpeed = 50.0f;
+  // 発射間隔(秒)
+  public float bulletTime = 0.0f;
 
   void Start() {
     // ジェスチャー有効化
@@ -60,9 +62,16 @@ public class Motion : MonoBehaviour {
   }
 
   void shoot() {
+    // 弾の発射間隔
+    var bulletEnable = false;
+    bulletTime += Time.deltaTime;
+    if (bulletTime > 0.1f) {
+        bulletTime = 0;
+        bulletEnable = true;
+    }
     // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
     var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone3");
-    if (rightHand != null) {
+    if (rightHand != null && bulletEnable) {
       // 銃口の位置調整
       // muzzle.transform.position = rightHand.transform.position + new Vector3(0, 0, 5.5f);
       // 弾を発射(複製obj, obj位置, obj向き)
