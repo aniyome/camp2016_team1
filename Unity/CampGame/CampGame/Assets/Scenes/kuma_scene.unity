@@ -277,6 +277,7 @@ MonoBehaviour:
   forwardSpeed: 7
   backwardSpeed: 2
   rotateSpeed: 2
+  bulletTime: 0
 --- !u!1 &281214980
 GameObject:
   m_ObjectHideFlags: 0

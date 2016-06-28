@@ -3,13 +3,18 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
+  // 発射時エフェクト
+  public GameObject effect;
   // Bulletの攻撃力
   public float damage = 3;
   // 自動削除されるまでの時間
   public float destroyTime = 1;
 
   void Start () {
-    // Bullet削除
+    // 発射時エフェクト
+    var obj = GameObject.Instantiate(effect, transform.position, Quaternion.identity);
+    Destroy(obj, 0.1f);
+    // Bullet削除設定
     Destroy(gameObject, destroyTime);
   }
 
