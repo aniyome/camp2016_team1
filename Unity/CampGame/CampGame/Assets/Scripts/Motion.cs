@@ -60,11 +60,13 @@ public class Motion : MonoBehaviour {
   }
 
   void shoot() {
-    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
-    // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone3");
+    // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
+    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone3");
     if (rightHand != null) {
       // 弾を発射(複製obj, obj位置, obj向き)
       var bulletCrone = GameObject.Instantiate(bullet, muzzle.transform.position, Quaternion.identity) as GameObject;
+      // 銃口の位置調整
+      muzzle.transform.position = rightHand.transform.position + new Vector3(0, 0, 0.5f);
       // 銃口の前方にbulletSpeed分の力を加える
       bulletCrone.GetComponent<Rigidbody>().AddForce(rightHand.transform.forward * bulletSpeed);
       // 銃SE

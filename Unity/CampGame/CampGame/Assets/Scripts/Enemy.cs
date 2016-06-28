@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour {
 		// 主人公との距離取得
 		float playerDistance = Vector3.Distance(player.transform.position, transform.position);
 
-		Debug.Log (approachPlayerDistance);
+		// Debug.Log (approachPlayerDistance);
 
 		// 主人公との距離が近ければ、主人公に向かっていく
 		if (playerDistance < approachPlayerDistance) {
