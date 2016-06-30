@@ -13,6 +13,9 @@ public class CharacterStatus : MonoBehaviour {
 	// 攻撃力
 	public float Attack = 10;
 
+	// 倒した時のスコア
+	public float Score = 10;
+
 	// HP
 	private float HP;
 
@@ -25,6 +28,9 @@ public class CharacterStatus : MonoBehaviour {
 	// HPバーの値
 	private float sliderValue = 1;
 
+	// ゲームコントローラ
+	private GameObject GameController;
+
 	// Use this for initialization
 	void Start () {
 		// MaxHPを現在のHPに設定
@@ -32,6 +38,9 @@ public class CharacterStatus : MonoBehaviour {
 
 		// HPバーのオブジェクト取得
 		slider = GetComponentInChildren<Slider>();
+
+		// ゲームコントローラ取得
+		GameController = GameObject.Find("GameController");
 	}
 	
 	// Update is called once per frame
@@ -49,6 +58,7 @@ public class CharacterStatus : MonoBehaviour {
 
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
+			GameController.SendMessage("addScore" , Score);
 			Destroy(gameObject);
 		}
 	}

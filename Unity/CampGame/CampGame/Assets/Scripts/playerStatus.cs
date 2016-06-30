@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class playerStatus : MonoBehaviour {
+public class PlayerStatus : MonoBehaviour {
 
 	// 最大HP
 	public float MaxHP = 100;
@@ -10,10 +10,10 @@ public class playerStatus : MonoBehaviour {
 	public float MaxMP = 100;
 
 	// HP
-	private float HP;
+	public float HP;
 
 	// MP
-	private float MP;
+	public float MP;
 
 	// Use this for initialization
 	void Start () {
