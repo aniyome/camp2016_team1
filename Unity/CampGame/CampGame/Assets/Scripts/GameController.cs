@@ -13,8 +13,14 @@ public class GameController : MonoBehaviour {
 	// 制限時間ラベルオブジェクト
 	public UnityEngine.UI.Text TimerLabel;
 
+	// ダメージエフェクト
+	public UnityEngine.UI.Image DamageEffect;
+
 	// プレイヤーオブジェクト
 	public GameObject Player;
+
+	// メインカメラオブジェクト
+	public GameObject MainCamera;
 
 	// 制限時間
 	public float TimeLimit;
@@ -66,5 +72,13 @@ public class GameController : MonoBehaviour {
 	// スコア加算処理
 	public void addScore(float point) {
 		Score += point;
+	}
+
+	// ダメージエフェクト処理
+	IEnumerator monitorFlash(){
+		DamageEffect.enabled = true;
+		yield return new WaitForSeconds(0.1f);		// 処理を待機.
+		iTween.ShakePosition (MainCamera, iTween.Hash("x",0.3f,"y",0.3f,"time",0.5f));
+		DamageEffect.enabled = false;
 	}
 }

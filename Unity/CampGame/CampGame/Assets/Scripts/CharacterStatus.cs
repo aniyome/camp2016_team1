@@ -70,6 +70,7 @@ public class CharacterStatus : MonoBehaviour {
 		if (other.tag == "Player") {
 			// (関数名, 値)
 			other.SendMessage("Damage", Attack);
+			GameController.SendMessage ("monitorFlash");
 			Destroy(gameObject);
 		}
 	}
