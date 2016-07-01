@@ -32,7 +32,6 @@ public class PlayerStatus : MonoBehaviour {
 	public void Damage (float damage) {
 		// HP減算処理
 		HP = HP - damage;
-		Debug.Log ("playerの残りHPは" + HP);
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
 			// TODO ゲームオーバー処理
