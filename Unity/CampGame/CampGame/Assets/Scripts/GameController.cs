@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour {
 	IEnumerator monitorFlash(){
 		DamageEffect.enabled = true;
 		yield return new WaitForSeconds(0.1f);		// 処理を待機.
-		iTween.ShakePosition (MainCamera, iTween.Hash("x",0.3f,"y",0.3f,"time",0.5f));
+		iTween.ShakePosition (MainCamera, iTween.Hash("x",0.8f,"y",0.8f,"time",0.8f));
 		DamageEffect.enabled = false;
 	}
 }
