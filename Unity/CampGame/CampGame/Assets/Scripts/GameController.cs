@@ -51,7 +51,16 @@ public class GameController : MonoBehaviour {
 
 		// 制限時間を表示
 		RemainingTime -= Time.deltaTime;
+		if (RemainingTime < 0) {
+			// 0秒以下は表示しない
+			RemainingTime = 0;
+		}
 		TimerLabel.text = "Time:" + ((int)RemainingTime).ToString();
+
+		// 制限時間が0になった時にゲーム終了処理
+		if (RemainingTime == 0) {
+			// TODO ゲーム終了処理
+		}
 	}
 
 	// スコア加算処理
