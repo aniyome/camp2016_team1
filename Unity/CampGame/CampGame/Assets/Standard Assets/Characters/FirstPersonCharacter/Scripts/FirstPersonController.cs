@@ -221,7 +221,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             if (frame.Hands[0].IsRight) {
               float x = frame.Hands[0].Direction.x;
-              float z = frame.Hands[0].Direction.y;
+//              float z = frame.Hands[0].Direction.y;
 //              Debug.Log(x);
               float rotateSpeed = 5.0f;
               transform.Rotate(0, x * rotateSpeed, 0);
