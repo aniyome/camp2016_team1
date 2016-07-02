@@ -1,7 +1,7 @@
 ﻿// TODO: アイテムで武器強化 or 武器変更
 // TODO: 左手モーション作成
 // TODO: 全体的なSE
-// TODO: シールド
+// TODO: シールド or HP回復
 // TODO: 水
 
 using UnityEngine;
@@ -94,8 +94,8 @@ public class Motion : MonoBehaviour {
         bulletTime = 0;
         bulletEnable = true;
     }
-    // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
-    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone3");
+    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
+//    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone3");
     if (rightHand != null && bulletEnable) {
 
       // TODO: 余裕があったら Handオブジェクトにタグをセット
