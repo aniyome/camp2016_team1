@@ -22,12 +22,6 @@ public class EnemyStatus : MonoBehaviour {
 	// MP
 	private float MP;
 
-	// HPバー
-	private Slider slider;
-
-	// HPバーの値
-	private float sliderValue = 1;
-
 	// キャンパスコントローラ
 	private GameObject CanvasController;
 
@@ -35,9 +29,6 @@ public class EnemyStatus : MonoBehaviour {
 	void Start () {
 		// MaxHPを現在のHPに設定
 		HP = MaxHP;
-
-		// HPバーのオブジェクト取得
-		slider = GetComponentInChildren<Slider>();
 
 		// キャンパスコントローラ
 		CanvasController = GameObject.Find("Canvas");
@@ -52,9 +43,6 @@ public class EnemyStatus : MonoBehaviour {
 	public void Damage (float damage) {
 		// HP減算処理
 		HP = HP - damage;
-
-		// HPバーの値減少処理
-		slider.value = HP / MaxHP;
 
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
