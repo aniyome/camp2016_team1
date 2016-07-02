@@ -28,8 +28,8 @@ public class CharacterStatus : MonoBehaviour {
 	// HPバーの値
 	private float sliderValue = 1;
 
-	// ゲームコントローラ
-	private GameObject GameController;
+	// キャンパスコントローラ
+	private GameObject CanvasController;
 
 	// Use this for initialization
 	void Start () {
@@ -39,8 +39,8 @@ public class CharacterStatus : MonoBehaviour {
 		// HPバーのオブジェクト取得
 		slider = GetComponentInChildren<Slider>();
 
-		// ゲームコントローラ取得
-		GameController = GameObject.Find("GameController");
+		// キャンパスコントローラ
+		CanvasController = GameObject.Find("Canvas");
 	}
 	
 	// Update is called once per frame
@@ -58,7 +58,7 @@ public class CharacterStatus : MonoBehaviour {
 
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
-			GameController.SendMessage("addScore" , Score);
+			CanvasController.SendMessage("addScore" , Score);
 			Destroy(gameObject);
 		}
 	}
@@ -70,7 +70,7 @@ public class CharacterStatus : MonoBehaviour {
 		if (other.tag == "Player") {
 			// (関数名, 値)
 			other.SendMessage("Damage", Attack);
-			GameController.SendMessage ("monitorFlash");
+			CanvasController.SendMessage ("monitorFlash");
 			Destroy(gameObject);
 		}
 	}

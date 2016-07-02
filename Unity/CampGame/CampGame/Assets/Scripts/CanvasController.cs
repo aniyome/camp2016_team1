@@ -2,13 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class CanvasController : MonoBehaviour {
 
 	// スコアラベルオブジェクト
 	public UnityEngine.UI.Text ScoreLabel;
-
-	// プレイヤーHPラベルオブジェクト
-	public UnityEngine.UI.Text PlayerHpLabel;
 
 	// 制限時間ラベルオブジェクト
 	public UnityEngine.UI.Text TimerLabel;
@@ -21,6 +18,9 @@ public class GameController : MonoBehaviour {
 
 	// メインカメラオブジェクト
 	public GameObject MainCamera;
+
+	// ハートマークのHPバー
+	public GameObject HealthBar;
 
 	// 制限時間
 	public float TimeLimit;
@@ -38,10 +38,10 @@ public class GameController : MonoBehaviour {
 	void Awake () {
 		// 初期スコアセット
 		Score = 0;
-		ScoreLabel.text = "Score:" + Score.ToString();
+//		ScoreLabel.text = "Score:" + Score.ToString();
 		// プレイヤーの初期HP取得
 		PlayerHP = Player.GetComponent<PlayerStatus>().MaxHP;
-		PlayerHpLabel.text = "HP:" + PlayerHP.ToString ();
+		HealthBar.GetComponent<IconProgressBar>().CurrentValue = PlayerHP;
 		// 残り時間セット
 		RemainingTime = TimeLimit;
 		TimerLabel.text = "Time:" + ((int)RemainingTime).ToString();
@@ -50,10 +50,10 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// スコアを表示
-		ScoreLabel.text = "Score:" + Score.ToString();
+//		ScoreLabel.text = "Score:" + Score.ToString();
 
 		// プレイヤーのHPを表示
-		PlayerHpLabel.text = "HP:" +  Player.GetComponent<PlayerStatus>().HP;
+		HealthBar.GetComponent<IconProgressBar>().CurrentValue = Player.GetComponent<PlayerStatus>().HP;
 
 		// 制限時間を表示
 		RemainingTime -= Time.deltaTime;
