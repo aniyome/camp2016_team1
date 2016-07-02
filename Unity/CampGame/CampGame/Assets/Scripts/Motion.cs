@@ -1,8 +1,8 @@
-﻿// TODO: 弾数制限
-// TODO: アイテムで武器強化 or 武器変更
+﻿// TODO: アイテムで武器強化 or 武器変更
 // TODO: 左手モーション作成
-// TODO: Enemy当たり判定(SEも)
-// TODO: ダメージ判定
+// TODO: 全体的なSE
+// TODO: シールド
+// TODO: 水
 
 using UnityEngine;
 using System.Collections;
@@ -139,30 +139,39 @@ public class Motion : MonoBehaviour {
     }
   }
 
-  // TODO: 左手も検知した結果falseを返してしまう不具合
   bool checkForShoot() {
-    var frame = controller.Frame();
-    var isIndex = false;
-    var isThumb = false;
-    foreach (var hand in frame.Hands) {
-      // 指のタイプを検出
-      foreach (var finger in hand.Fingers) {
-        if (finger.IsExtended && hand.IsRight) {
-          // INDEX確認
-          if (finger.Type().Equals(frame.Fingers[0].Type())) {
-            isIndex = true;
-          }
-          // THUMB確認
-          if (finger.Type().Equals(frame.Fingers[1].Type())) {
-            isThumb = true;
-          }
-        }
-      }
-    }
-    return isIndex && isThumb && frame.Fingers.Extended().Count == 5;
+    return rightFingerThumb && rightFingerIndex && rightFingerMiddle && rightFingerRing && rightFingerPinky;
   }
 
   void checkMotion() {
+    // 初期化
+    // 手の数
+    handsCount = 0;
+    // 指の数
+    handFingersCount = 0;
+    // 伸びている指の数
+    fingersExtendedCount = 0;
+    // 親指(右)
+    rightFingerThumb = false;
+    // 人差し指(右)
+    rightFingerIndex = false;
+    // 中指(右)
+    rightFingerMiddle = false;
+    // 薬指(右)
+    rightFingerRing = false;
+    // 小指(右)
+    rightFingerPinky = false;
+    // 親指(左)
+    leftFingerThumb = false;
+    // 人差し指(左)
+    leftFingerIndex = false;
+    // 中指(左)
+    leftFingerMiddle = false;
+    // 薬指(左)
+    leftFingerRing = false;
+    // 小指(左)
+    leftFingerPinky = false;
+
     var frame = controller.Frame();
     HandList hands = frame.Hands;
     handsCount = hands.Count;

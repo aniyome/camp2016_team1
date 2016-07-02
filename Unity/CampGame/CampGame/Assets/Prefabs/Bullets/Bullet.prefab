@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 123794, guid: 1f576bf491708694889a8b9ba62c1d0a, type: 2}
   damage: 3
-  destroyTime: 3
+  destroyTime: 1
 --- !u!135 &13592760
 SphereCollider:
   m_ObjectHideFlags: 1

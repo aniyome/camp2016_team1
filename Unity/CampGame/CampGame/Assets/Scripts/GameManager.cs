@@ -47,6 +47,34 @@ public class GameManager : MonoBehaviour {
   }
 
   void checkMotion() {
+    // 初期化
+    // 手の数
+    handsCount = 0;
+    // 指の数
+    handFingersCount = 0;
+    // 伸びている指の数
+    fingersExtendedCount = 0;
+    // 親指(右)
+    rightFingerThumb = false;
+    // 人差し指(右)
+    rightFingerIndex = false;
+    // 中指(右)
+    rightFingerMiddle = false;
+    // 薬指(右)
+    rightFingerRing = false;
+    // 小指(右)
+    rightFingerPinky = false;
+    // 親指(左)
+    leftFingerThumb = false;
+    // 人差し指(左)
+    leftFingerIndex = false;
+    // 中指(左)
+    leftFingerMiddle = false;
+    // 薬指(左)
+    leftFingerRing = false;
+    // 小指(左)
+    leftFingerPinky = false;
+
     var frame = controller.Frame();
     HandList hands = frame.Hands;
     handsCount = hands.Count;
