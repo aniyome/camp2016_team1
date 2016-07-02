@@ -19,11 +19,12 @@ public class TitleController : MonoBehaviour {
   }
 
   void Update () {
+    // フェードイン
     if (opening == null) {
       fadeIn();
     }
+    // 文字を点滅
     if (time > fadetime + 1) {
-      // 文字を点滅
       if (nextTime < Time.time) {
         nextTime = Time.time;
         var color = text.color;
