@@ -1,10 +1,8 @@
 ﻿// TODO: 弾数制限
-// TODO: 発射速度調整
 // TODO: アイテムで武器強化 or 武器変更
 // TODO: 左手モーション作成
 // TODO: Enemy当たり判定(SEも)
 // TODO: ダメージ判定
-// TODO: 銃口位置調整
 
 using UnityEngine;
 using System.Collections;
@@ -12,14 +10,10 @@ using Leap;
 
 public class Motion : MonoBehaviour {
 
-  // leap motion 呼び出し
-  Controller controller = new Controller();
   // プレイヤー
   public GameObject player;
   // 弾オブジェクト
   public GameObject bullet;
-  // 銃口
-  public GameObject muzzle;
   // 弾速
   public float bulletSpeed = 3000;
   // 銃声
@@ -37,6 +31,36 @@ public class Motion : MonoBehaviour {
   // 発射間隔(秒)
   public float bulletTime = 0.0f;
 
+  // LeapMotion 呼び出し
+  private Controller controller = new Controller();
+  // 手の数
+  private int handsCount;
+  // 指の数
+  private int handFingersCount;
+  // 伸びている指の数
+  private int fingersExtendedCount;
+  // 親指(右)
+  private bool rightFingerThumb = false;
+  // 人差し指(右)
+  private bool rightFingerIndex = false;
+  private Leap.Finger rightFingerIndexObject;
+  // 中指(右)
+  private bool rightFingerMiddle = false;
+  // 薬指(右)
+  private bool rightFingerRing = false;
+  // 小指(右)
+  private bool rightFingerPinky = false;
+  // 親指(左)
+  private bool leftFingerThumb = false;
+  // 人差し指(左)
+  private bool leftFingerIndex = false;
+  // 中指(左)
+  private bool leftFingerMiddle = false;
+  // 薬指(左)
+  private bool leftFingerRing = false;
+  // 小指(左)
+  private bool leftFingerPinky = false;
+
   void Start() {
     // ジェスチャー有効化
     controller.EnableGesture(Gesture.GestureType.TYPECIRCLE);
@@ -46,9 +70,10 @@ public class Motion : MonoBehaviour {
   }
 
   void Update() {
-    // debug
-    // debug();
-      isShooot = checkForShoot();
+    // 手の動きを検知
+    checkMotion();
+    // 弾発射
+    isShooot = checkForShoot();
   }
 
   void FixedUpdate() {
@@ -72,11 +97,13 @@ public class Motion : MonoBehaviour {
     // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
     var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone3");
     if (rightHand != null && bulletEnable) {
-      // 銃口の位置調整
-      // muzzle.transform.position = rightHand.transform.position + new Vector3(0, 0, 5.5f);
+
+      // TODO: 余裕があったら Handオブジェクトにタグをセット
+      //rightHand.tag = "Player";
+
       // 弾を発射(複製obj, obj位置, obj向き)
-      var bulletCrone = GameObject.Instantiate(bullet, muzzle.transform.position, Quaternion.identity) as GameObject;
-      // 銃口の前方にbulletSpeed分の力を加える
+      var bulletCrone = GameObject.Instantiate(bullet, rightHand.transform.position, Quaternion.identity) as GameObject;
+      // 前方にbulletSpeed分の力を加える
       bulletCrone.GetComponent<Rigidbody>().AddForce(rightHand.transform.forward * bulletSpeed);
       // 銃SE
       GetComponent<AudioSource>().PlayOneShot(shootSE, 0.1F);
@@ -112,6 +139,7 @@ public class Motion : MonoBehaviour {
     }
   }
 
+  // TODO: 左手も検知した結果falseを返してしまう不具合
   bool checkForShoot() {
     var frame = controller.Frame();
     var isIndex = false;
@@ -132,6 +160,67 @@ public class Motion : MonoBehaviour {
       }
     }
     return isIndex && isThumb && frame.Fingers.Extended().Count == 5;
+  }
+
+  void checkMotion() {
+    var frame = controller.Frame();
+    HandList hands = frame.Hands;
+    handsCount = hands.Count;
+    // 手の検知
+    foreach (var hand in hands) {
+      FingerList fingers = hand.Fingers;
+      handFingersCount = hand.Fingers.Count;
+      fingersExtendedCount = fingers.Extended().Count;
+      // 指の検知
+      foreach (var finger in fingers) {
+        // 右の伸びている指を検知
+        if (finger.IsExtended && hand.IsRight) {
+          // 親指を検知
+          if (finger.Type().Equals(fingers[0].Type())) {
+            rightFingerThumb = true;
+          }
+          // 人差し指を検知
+          if (finger.Type().Equals(fingers[1].Type())) {
+            rightFingerIndex = true;
+            rightFingerIndexObject = finger;
+          }
+          // 中指を検知
+          if (finger.Type().Equals(fingers[2].Type())) {
+            rightFingerMiddle = true;
+          }
+          // 薬指を検知
+          if (finger.Type().Equals(fingers[3].Type())) {
+            rightFingerRing = true;
+          }
+          // 小指を検知
+          if (finger.Type().Equals(fingers[4].Type())) {
+            rightFingerPinky = true;
+          }
+        }
+        if (finger.IsExtended && hand.IsLeft) {
+          // 親指を検知
+          if (finger.Type().Equals(fingers[0].Type())) {
+            leftFingerThumb = true;
+          }
+          // 人差し指を検知
+          if (finger.Type().Equals(fingers[1].Type())) {
+            leftFingerIndex = true;
+         }
+          // 中指を検知
+          if (finger.Type().Equals(fingers[2].Type())) {
+            leftFingerMiddle = true;
+          }
+          // 薬指を検知
+          if (finger.Type().Equals(fingers[3].Type())) {
+            leftFingerRing = true;
+          }
+          // 小指を検知
+          if (finger.Type().Equals(fingers[4].Type())) {
+            leftFingerPinky = true;
+          }
+        }
+      }
+    }
   }
 
   void debug() {

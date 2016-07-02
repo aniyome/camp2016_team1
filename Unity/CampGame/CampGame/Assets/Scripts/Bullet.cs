@@ -24,13 +24,11 @@ public class Bullet : MonoBehaviour {
 
   // 接触判定(接触オブジェクト)
   void OnTriggerEnter (Collider other) {
-    // Bullet削除
-    Destroy(gameObject);
-
     // EnemyならDamage
     if (other.tag == "Enemy") {
-        // (関数名, 値)
-        other.SendMessage("Damage", damage);
+      Destroy(gameObject);
+      // (関数名, 値)
+      other.SendMessage("Damage", damage);
     }
   }
 
