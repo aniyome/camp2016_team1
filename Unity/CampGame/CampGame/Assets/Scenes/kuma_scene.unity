@@ -7527,7 +7527,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 433998, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.61
+      value: 11.87
       objectReference: {fileID: 0}
     - target: {fileID: 433998, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7587,6 +7587,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11460858, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
       propertyPath: nomalSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460858, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
+      propertyPath: MovementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460858, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
+      propertyPath: AproachSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460858, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1145300496}
+    - target: {fileID: 11460858, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
+      propertyPath: ApproachSpeed
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12662,6 +12678,27 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1212417268}
+--- !u!1 &1232908285 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189754, guid: 7063c68411f394704ab27c4ed97f7a59, type: 2}
+  m_PrefabInternal: {fileID: 693605802}
+--- !u!143 &1232908290
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232908285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.009999998
+  m_Radius: 0.07067991
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1236828948
 GameObject:
   m_ObjectHideFlags: 0

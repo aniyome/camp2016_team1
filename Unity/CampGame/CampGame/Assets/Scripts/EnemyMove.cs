@@ -3,80 +3,106 @@ using System.Collections;
 
 public class EnemyMove : MonoBehaviour {
 
-	// プレイヤー
-	public GameObject player;
+	// ----- プロパティ ------ //
 
-	// 移動スピード
-	public float nomalSpeed;
+	// ゲームプレイヤーオブジェクト
+	public GameObject Player;
+
+	// 通常の敵のスピード
+	public float MovementSpeed;
 
 	// プレイヤーに近づくスピード
-	public float aproachSpeed;
+	public float ApproachSpeed;
 
-	// 曲がる速さ
-	public float rotationSmooth;
+	// 敵の曲がる速さ
+	public float RotationSmooth = 10;
+
+	// ランダム移動の範囲
+	public float RandomPositionLevel = 15;
 
 	// 次の目標を決める範囲
-	public float changeTargetSqrDistance;
-
-	// ベクトルレベル
-	public float levelSize;
+	public float ChangeTargetSqrDistance = 5;
 
 	// プレイヤーに近づいてくる設定距離
-	public float approachPlayerDistance;
+	public float ApproachPlayerDistance = 5;
 
 	// 目標地点の位置
-	private Vector3 targetPosition;
+	private Vector3 TargetPosition;
 
 	// プレイヤーの位置情報
-	private Vector3 playerPosition;
+	private Vector3 PlayerPosition;
+
+	// プレイヤーと敵の距離
+	private float PlayerDistance;
 
 	// 現在の移動速度
-	private float speed;
+	private float NowSpeed;
 
+	// ----- Public関数 ------ //
+
+	// オブジェクト生成時に呼び出される処理
 	public void Start() {
-		targetPosition = GetRandomPositionOnLevel();
-		speed = nomalSpeed;
+		// ランダム移動のために、ランダムな位置を取得する
+		TargetPosition = GetRandomPosition ();
+		// 設定した移動スピードを現在のスピードにセット
+		NowSpeed = MovementSpeed;
 	}
 
+	// 常に呼び出される処理
 	public void Update() {
 
-		// 主人公との距離取得
-		float playerDistance = Vector3.Distance(player.transform.position, transform.position);
+		// 自身とゲームプレイヤーとの距離取得
+		PlayerDistance = Vector3.Distance(Player.transform.position, transform.position);
 
 		// 主人公との距離が近ければ、主人公に向かっていく
-		if (playerDistance < approachPlayerDistance) {
-			// 急速に近づく
-			speed = aproachSpeed;
-
-			// 目標地点の方向を向く
-			Quaternion targetRotation = Quaternion.LookRotation (player.transform.position - transform.position);
-			transform.rotation = Quaternion.Slerp (transform.rotation, targetRotation, Time.deltaTime * rotationSmooth);
-
-			// 前方に進む
-			transform.Translate (Vector3.forward * speed * Time.deltaTime);
+		if (PlayerDistance < ApproachPlayerDistance) {
+			// 近づいてくる
+			ApproachMove ();
 		} else {
-			// 通常速度に戻る
-			speed = nomalSpeed;
-
-			// 目標地点との距離が小さければ、次のランダムな目標地点を設定する
-			float sqrDistanceToTarget = Vector3.SqrMagnitude (transform.position - targetPosition);
-
-			if (sqrDistanceToTarget < changeTargetSqrDistance) {
-				targetPosition = GetRandomPositionOnLevel ();
-			} 
-
-			// 目標地点の方向を向く
-			Quaternion targetRotation = Quaternion.LookRotation (targetPosition - transform.position);
-			transform.rotation = Quaternion.Slerp (transform.rotation, targetRotation, Time.deltaTime * rotationSmooth);
-
-			// 前方に進む
-			transform.Translate (Vector3.forward * speed * Time.deltaTime);
+			// ランダム移動
+			RamdomMove();
 		}
 	}
 
-	// 新規ベクトルの取得
-	public Vector3 GetRandomPositionOnLevel() {
-		return new Vector3(Random.Range(-levelSize, levelSize), 0, Random.Range(-levelSize, levelSize));
+	// ----- 以下はPrivate関数 ----- //
+
+	// ゲームプレイヤーへ近づいてくる
+	private void ApproachMove() {
+		// プレイヤーに近づくスピードを現在の移動速度に設定
+		NowSpeed = ApproachSpeed;
+
+		// 目標地点の方向を向く
+		Quaternion targetRotation = Quaternion.LookRotation (Player.transform.position - transform.position);
+		transform.rotation = Quaternion.Slerp (transform.rotation, targetRotation, Time.deltaTime * RotationSmooth);
+
+		// 前方に進む
+		transform.Translate (Vector3.forward * NowSpeed * Time.deltaTime);
+	}
+
+	// ランダム移動
+	private void RamdomMove() {
+		// 通常の敵のスピード現在の移動速度に設定
+		NowSpeed = MovementSpeed;
+
+		// ランダム移動のために、ランダムな位置を取得する
+		float sqrDistanceToTarget = Vector3.SqrMagnitude (transform.position - TargetPosition);
+
+		// ランダムな位置に
+		if (sqrDistanceToTarget < ChangeTargetSqrDistance) {
+			TargetPosition = GetRandomPosition ();
+		} 
+
+		// 目標地点の方向を向く
+		Quaternion targetRotation = Quaternion.LookRotation (TargetPosition - transform.position);
+		transform.rotation = Quaternion.Slerp (transform.rotation, targetRotation, Time.deltaTime * RotationSmooth);
+
+		// 前方に進む
+		transform.Translate (Vector3.forward * NowSpeed * Time.deltaTime);
+	}
+
+	// ランダムの位置ベクトル取得処理
+	private Vector3 GetRandomPosition() {
+		return new Vector3(Random.Range(-RandomPositionLevel, RandomPositionLevel), 0, Random.Range(-RandomPositionLevel, RandomPositionLevel));
 	}
 
 }
