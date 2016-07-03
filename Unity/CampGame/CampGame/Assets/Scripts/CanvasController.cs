@@ -22,6 +22,9 @@ public class CanvasController : MonoBehaviour {
 	// ハートマークのHPバー
 	public GameObject HealthBar;
 
+	// 寿司を倒せのテキスト
+	public GameObject MissionText;
+
 	// 制限時間
 	public float TimeLimit;
 
@@ -45,6 +48,8 @@ public class CanvasController : MonoBehaviour {
 		// 残り時間セット
 		RemainingTime = TimeLimit;
 		TimerLabel.text = "Time:" + ((int)RemainingTime).ToString();
+		// 一定時間後にMissionTextを消去
+		Destroy(MissionText, 5.0f);
 	}
 	
 	// Update is called once per frame
