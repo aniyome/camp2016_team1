@@ -16,6 +16,12 @@ public class EnemyStatus : MonoBehaviour {
 	// 倒した時のスコア
 	public float Score = 10;
 
+	// ダメージを受けた時のエフェクト
+	public GameObject DamageEffect;
+
+	// 消滅する時のエフェクト
+	public GameObject DestroyEffect;
+
 	// HP
 	private float HP;
 
@@ -44,9 +50,15 @@ public class EnemyStatus : MonoBehaviour {
 		// HP減算処理
 		HP = HP - damage;
 
+		// ダメージを受けた時にエフェクトを発生
+		var obj = GameObject.Instantiate(DamageEffect, transform.position, Quaternion.identity);
+		Destroy(obj, 0.1f);
+
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
 			CanvasController.SendMessage("addScore" , Score);
+			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+			Destroy(destroyObj, 0.5f);
 			Destroy(this.gameObject);
 		}
 	}
@@ -59,7 +71,7 @@ public class EnemyStatus : MonoBehaviour {
 			// (関数名, 値)
 			other.SendMessage("Damage", Attack);
 			CanvasController.SendMessage ("monitorFlash");
-			Destroy(this.gameObject);
+//			Destroy(this.gameObject);
 		}
 	}
 }
