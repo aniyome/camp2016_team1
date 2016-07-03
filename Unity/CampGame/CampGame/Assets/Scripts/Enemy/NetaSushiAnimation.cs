@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SushiAnimation : BaseEnemyAnimation {
+public class NetaSushiAnimation : BaseEnemyAnimation {
 
 	// Use this for initialization
 	void Start () {
@@ -10,7 +10,9 @@ public class SushiAnimation : BaseEnemyAnimation {
 	
 	// Update is called once per frame
 	void Update () {
-		// 大きくする
-		EnemyPunchRotation();
+		iTween.PunchPosition(this.gameObject, iTween.Hash(
+			"y", 10,
+			"time", 3.0f)
+		);
 	}
 }
