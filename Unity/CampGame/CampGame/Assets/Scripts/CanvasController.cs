@@ -41,7 +41,7 @@ public class CanvasController : MonoBehaviour {
 	void Awake () {
 		// 初期スコアセット
 		Score = 0;
-//		ScoreLabel.text = "Score:" + Score.ToString();
+		ScoreLabel.text = "Score:" + Score.ToString();
 		// プレイヤーの初期HP取得
 		PlayerHP = Player.GetComponent<PlayerStatus>().MaxHP;
 		HealthBar.GetComponent<IconProgressBar>().CurrentValue = PlayerHP;
@@ -49,13 +49,13 @@ public class CanvasController : MonoBehaviour {
 		RemainingTime = TimeLimit;
 		TimerLabel.text = "Time:" + ((int)RemainingTime).ToString();
 		// 一定時間後にMissionTextを消去
-		Destroy(MissionText, 5.0f);
+		Destroy(MissionText, 3.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// スコアを表示
-//		ScoreLabel.text = "Score:" + Score.ToString();
+		ScoreLabel.text = "Score:" + Score.ToString();
 
 		// プレイヤーのHPを表示
 		HealthBar.GetComponent<IconProgressBar>().CurrentValue = Player.GetComponent<PlayerStatus>().HP;

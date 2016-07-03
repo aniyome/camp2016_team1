@@ -326,7 +326,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22485088, guid: e23c4484a8b6544e68d538bdf996dff7, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 1040
+      value: 1092
       objectReference: {fileID: 0}
     - target: {fileID: 22485088, guid: e23c4484a8b6544e68d538bdf996dff7, type: 2}
       propertyPath: m_SizeDelta.x
@@ -2245,7 +2245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22464786, guid: 2cab46c9a582542058ccf0a858b5b86e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 163.7
+      value: 205
       objectReference: {fileID: 0}
     - target: {fileID: 22464786, guid: 2cab46c9a582542058ccf0a858b5b86e, type: 2}
       propertyPath: m_SizeDelta.x
@@ -2278,6 +2278,18 @@ Prefab:
     - target: {fileID: 22464786, guid: 2cab46c9a582542058ccf0a858b5b86e, type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425742, guid: 2cab46c9a582542058ccf0a858b5b86e, type: 2}
+      propertyPath: m_Text
+      value: 'Score:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425742, guid: 2cab46c9a582542058ccf0a858b5b86e, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425742, guid: 2cab46c9a582542058ccf0a858b5b86e, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cab46c9a582542058ccf0a858b5b86e, type: 2}
@@ -2467,11 +2479,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22446626, guid: bd4244794a62e46239afd1b348f578c5, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -292.4
+      value: -291
       objectReference: {fileID: 0}
     - target: {fileID: 22446626, guid: bd4244794a62e46239afd1b348f578c5, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 148.5
+      value: 172.6
       objectReference: {fileID: 0}
     - target: {fileID: 22446626, guid: bd4244794a62e46239afd1b348f578c5, type: 2}
       propertyPath: m_SizeDelta.x
