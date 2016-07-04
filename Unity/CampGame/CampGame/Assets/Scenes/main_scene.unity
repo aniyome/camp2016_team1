@@ -659,8 +659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsWalking: 0
-  m_WalkSpeed: 5
-  m_RunSpeed: 10
+  m_WalkSpeed: 10
+  m_RunSpeed: 20
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 10
   m_StickToGroundForce: 10
@@ -2150,6 +2150,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11473480, guid: 1d89eb66390d8425db894b3529a1f381, type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 982143059}
+    - target: {fileID: 11473480, guid: 1d89eb66390d8425db894b3529a1f381, type: 2}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 138930155}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d89eb66390d8425db894b3529a1f381, type: 2}
   m_IsPrefabParent: 0

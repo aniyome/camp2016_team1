@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
     // play画面に遷移
     if (handsCount > 0 && Application.loadedLevelName == "opening") {
       // SceneManager.LoadScene ("kuma_scene", LoadSceneMode.Single);
-      SceneManager.LoadScene ("testscene", LoadSceneMode.Single);
+      SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
     }
   }
 

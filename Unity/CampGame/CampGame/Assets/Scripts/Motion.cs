@@ -97,8 +97,8 @@ public class Motion : MonoBehaviour {
         nowTimeBullet = 0;
         bulletEnable = true;
     }
-    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
-//    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone3");
+//    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
+    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone1");
     if (rightHand != null && bulletEnable) {
 
       // TODO: 余裕があったら Handオブジェクトにタグをセット
