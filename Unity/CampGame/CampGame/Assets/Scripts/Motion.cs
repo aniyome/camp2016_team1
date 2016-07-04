@@ -143,7 +143,8 @@ public class Motion : MonoBehaviour {
   }
 
   bool checkForShoot() {
-    return rightFingerThumb && rightFingerIndex && rightFingerMiddle && rightFingerRing && rightFingerPinky;
+//    return rightFingerThumb && rightFingerIndex && rightFingerMiddle && rightFingerRing && rightFingerPinky;
+      return rightFingerThumb && rightFingerIndex;
   }
 
   void checkMotion() {
