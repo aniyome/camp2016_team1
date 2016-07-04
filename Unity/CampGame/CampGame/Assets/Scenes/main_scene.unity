@@ -2092,12 +2092,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   bullet: {fileID: 151466, guid: 4986f39f0bfce6242a431164816dbdb1, type: 2}
-  bulletSpeed: 3000
+  bulletSpeed: 10000
   shootSE: {fileID: 8300000, guid: 2bc55f03ddfeeee4bbd43e34dcf3a1aa, type: 3}
   forwardSpeed: 7
   backwardSpeed: 2
   rotateSpeed: 2
-  bulletTime: 0
+  bulletTime: 0.05
 --- !u!82 &1330338404
 AudioSource:
   m_ObjectHideFlags: 0

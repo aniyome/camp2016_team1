@@ -15,7 +15,7 @@ public class Motion : MonoBehaviour {
   // 弾オブジェクト
   public GameObject bullet;
   // 弾速
-  public float bulletSpeed = 3000;
+  public float bulletSpeed = 10000;
   // 銃声
   public AudioClip shootSE;
   // 撃てる
@@ -29,7 +29,9 @@ public class Motion : MonoBehaviour {
   // 旋回速度
   public float rotateSpeed = 50.0f;
   // 発射間隔(秒)
-  public float bulletTime = 0.0f;
+  public float bulletTime = 0.1f;
+  // 発射間隔用初期値
+  private float nowTimeBullet = 0.0f;
 
   // LeapMotion 呼び出し
   private Controller controller = new Controller();
@@ -89,9 +91,10 @@ public class Motion : MonoBehaviour {
   void shoot() {
     // 弾の発射間隔
     var bulletEnable = false;
-    bulletTime += Time.deltaTime;
-    if (bulletTime > 0.1f) {
-        bulletTime = 0;
+    // Time.deltaTimeには1秒を分割した数値が入る
+    nowTimeBullet += Time.deltaTime;
+    if (nowTimeBullet > bulletTime) {
+        nowTimeBullet = 0;
         bulletEnable = true;
     }
     var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
