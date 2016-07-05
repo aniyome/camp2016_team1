@@ -10,6 +10,9 @@ public class CanvasController : MonoBehaviour {
 	// 制限時間ラベルオブジェクト
 	public UnityEngine.UI.Text TimerLabel;
 
+	// 残り弾薬表示オブジェクト
+	public UnityEngine.UI.Text BulletLabel;
+
 	// ダメージエフェクト
 	public UnityEngine.UI.Image DamageEffect;
 
@@ -37,6 +40,12 @@ public class CanvasController : MonoBehaviour {
 	// 残り時間
 	private float RemainingTime;
 
+	// 残り弾数
+	private float BulletCount;
+
+	// Max弾数
+	private float MaxBulletCount;
+
 	// Use this for initialization
 	void Awake () {
 		// 初期スコアセット
@@ -50,6 +59,8 @@ public class CanvasController : MonoBehaviour {
 		TimerLabel.text = "Time:" + ((int)RemainingTime).ToString();
 		// 一定時間後にMissionTextを消去
 		Destroy(MissionText, 3.0f);
+		// 弾数を表示
+		BulletLabel.text = "Bullet:" + ((int)Player.GetComponent<PlayerStatus>().bulletCount) + "/" + Player.GetComponent<PlayerStatus>().maxBulletCount;
 	}
 	
 	// Update is called once per frame
@@ -59,6 +70,9 @@ public class CanvasController : MonoBehaviour {
 
 		// プレイヤーのHPを表示
 		HealthBar.GetComponent<IconProgressBar>().CurrentValue = Player.GetComponent<PlayerStatus>().HP;
+
+		// プレイヤーの弾数を表示
+		BulletLabel.text = "Bullet:" + ((int)Player.GetComponent<PlayerStatus>().bulletCount) + "/" + Player.GetComponent<PlayerStatus>().maxBulletCount;
 
 		// 制限時間を表示
 		RemainingTime -= Time.deltaTime;
