@@ -26,6 +26,8 @@ public class Motion : MonoBehaviour {
   public AudioClip shootSE;
   // 撃てる
   private bool isShooot;
+  // ショットガン
+  private bool isShotGun;
   // 跳ね返せる
   private bool isBounce;
   // 移動量
@@ -89,13 +91,15 @@ public class Motion : MonoBehaviour {
     // 弾発射
     isShooot = checkShoot();
     isBounce = checkBounce();
+    isShotGun = checkShotGun();
   }
 
   void FixedUpdate() {
-    // 移動
-    // move();
-    // 撃つ
-    if (isShooot && checkBulletCount()) {
+    // ショットガン
+    if (isShotGun && checkShotGunCount()) {
+      shotGun();
+    // 単発
+    } else if (isShooot && checkBulletCount()) {
       shoot();
     // max弾数を超えないようにする
     } else if (player.GetComponent<PlayerStatus>().bulletCount < player.GetComponent<PlayerStatus>().maxBulletCount) {
@@ -137,6 +141,41 @@ public class Motion : MonoBehaviour {
     }
   }
 
+  void shotGun() {
+    // 弾の発射間隔
+    var bulletEnable = false;
+    // Time.deltaTimeには1秒を分割した数値が入る
+    nowTimeBullet += Time.deltaTime;
+    if (nowTimeBullet > bulletTime) {
+        nowTimeBullet = 0;
+        bulletEnable = true;
+    }
+    // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
+    var rightHand1 = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone1");
+    var rightHand2 = GameObject.Find("CleanRobotFullRightHand(Clone)/middle/bone1");
+    var rightHand3 = GameObject.Find("CleanRobotFullRightHand(Clone)/ring/bone1");
+    var rightHand4 = GameObject.Find("CleanRobotFullRightHand(Clone)/pinky/bone1");
+    if (bulletEnable) {
+      // 弾を4つ減らす
+      player.GetComponent<PlayerStatus>().bulletCount -= 4;
+      // TODO: 余裕があったら Handオブジェクトにタグをセット
+      //rightHand.tag = "Player";
+
+      // 弾を発射(複製obj, obj位置, obj向き)
+      var bulletCrone1 = GameObject.Instantiate(bullet, rightHand1.transform.position, Quaternion.identity) as GameObject;
+      var bulletCrone2 = GameObject.Instantiate(bullet, rightHand2.transform.position, Quaternion.identity) as GameObject;
+      var bulletCrone3 = GameObject.Instantiate(bullet, rightHand3.transform.position, Quaternion.identity) as GameObject;
+      var bulletCrone4 = GameObject.Instantiate(bullet, rightHand4.transform.position, Quaternion.identity) as GameObject;
+      // 前方にbulletSpeed分の力を加える
+      bulletCrone1.GetComponent<Rigidbody>().AddForce(rightHand1.transform.forward * bulletSpeed);
+      bulletCrone2.GetComponent<Rigidbody>().AddForce(rightHand2.transform.forward * bulletSpeed);
+      bulletCrone3.GetComponent<Rigidbody>().AddForce(rightHand3.transform.forward * bulletSpeed);
+      bulletCrone4.GetComponent<Rigidbody>().AddForce(rightHand4.transform.forward * bulletSpeed);
+      // 銃SE
+      GetComponent<AudioSource>().PlayOneShot(shootSE, 0.1F);
+    }
+  }
+
   // TODO: 未完成
   void bounceShoot() {
     // 弾の発射間隔
@@ -148,7 +187,7 @@ public class Motion : MonoBehaviour {
         bounceEnable = true;
     }
     // var leftHand = GameObject.Find("CleanRobotFullLeftHand(Clone)/palm");
-    var leftHand = GameObject.Find("CleanRobotFullLeftHand(Clone)/index/bone3");
+    var leftHand = GameObject.Find("CleanRobotFullLeftHand(Clone)/index/bone1");
     if (leftHand != null && bounceEnable) {
       // 弾を発射(複製obj, obj位置, obj向き)
       var bounceCrone = GameObject.Instantiate(bounce, leftHand.transform.position, Quaternion.identity) as GameObject;
@@ -194,6 +233,10 @@ public class Motion : MonoBehaviour {
     return rightFingerThumb && rightFingerIndex;
   }
 
+  bool checkShotGun() {
+    return rightFingerThumb && rightFingerIndex && rightFingerMiddle && rightFingerRing && rightFingerPinky;
+  }
+
   // TODO: トリガーはジェスチャーにするか未定
   bool checkBounce() {
     return leftFingerThumb && leftFingerIndex;
@@ -201,6 +244,13 @@ public class Motion : MonoBehaviour {
 
   bool checkBulletCount() {
     if (player.GetComponent<PlayerStatus>().bulletCount >= 1) {
+      return true;
+    }
+    return false;
+  }
+
+  bool checkShotGunCount() {
+    if (player.GetComponent<PlayerStatus>().bulletCount >= 4) {
       return true;
     }
     return false;
