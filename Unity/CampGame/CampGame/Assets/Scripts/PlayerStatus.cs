@@ -15,6 +15,12 @@ public class PlayerStatus : MonoBehaviour {
 	// MP
 	public float MP;
 
+	// 弾数
+	public float maxBulletCount = 50.0f;
+
+	// 弾数
+	public float bulletCount = 50.0f;
+
 	// Use this for initialization
 	void Start () {
 		// MaxHPを現在のHPに設定

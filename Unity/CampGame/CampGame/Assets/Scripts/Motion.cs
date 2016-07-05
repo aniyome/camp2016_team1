@@ -20,6 +20,8 @@ public class Motion : MonoBehaviour {
   public float bulletSpeed = 10000;
   // バウンス弾速
   public float bounceSpeed = 10000;
+  // リロードスピード
+  public float reloadSpeed = 0.05f;
   // 銃声
   public AudioClip shootSE;
   // 撃てる
@@ -93,10 +95,12 @@ public class Motion : MonoBehaviour {
     // 移動
     // move();
     // 撃つ
-    if (isShooot) {
+    if (isShooot && checkBulletCount()) {
       shoot();
-    } else {
-      // 弾チャージ？
+    // max弾数を超えないようにする
+    } else if (player.GetComponent<PlayerStatus>().bulletCount < player.GetComponent<PlayerStatus>().maxBulletCount) {
+      // 弾チャージ
+      player.GetComponent<PlayerStatus>().bulletCount += reloadSpeed;
     }
     // 跳ね返す
     if (isBounce) {
@@ -118,7 +122,8 @@ public class Motion : MonoBehaviour {
     // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
     var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone1");
     if (rightHand != null && bulletEnable) {
-
+      // 弾を一つ減らす
+      player.GetComponent<PlayerStatus>().bulletCount -= 1;
       // TODO: 余裕があったら Handオブジェクトにタグをセット
       //rightHand.tag = "Player";
 
@@ -185,12 +190,19 @@ public class Motion : MonoBehaviour {
 
   bool checkShoot() {
 //    return rightFingerThumb && rightFingerIndex && rightFingerMiddle && rightFingerRing && rightFingerPinky;
-      return rightFingerThumb && rightFingerIndex;
+    return rightFingerThumb && rightFingerIndex;
   }
 
   // TODO: トリガーはジェスチャーにするか未定
   bool checkBounce() {
-      return leftFingerThumb && leftFingerIndex;
+    return leftFingerThumb && leftFingerIndex;
+  }
+
+  bool checkBulletCount() {
+    if (player.GetComponent<PlayerStatus>().bulletCount >= 1) {
+      return true;
+    }
+    return false;
   }
 
   void checkMotion() {
