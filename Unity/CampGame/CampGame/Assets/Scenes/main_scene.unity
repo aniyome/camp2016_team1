@@ -439,8 +439,8 @@ MonoBehaviour:
   MaxMP: 100
   HP: 0
   MP: 0
-  maxBulletCount: 50
-  bulletCount: 50
+  maxBulletCount: 60
+  bulletCount: 60
 --- !u!82 &982143061
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   bounce: {fileID: 0}
   bulletSpeed: 10000
   bounceSpeed: 10000
-  reloadSpeed: 0.5
+  reloadSpeed: 0.05
   shootSE: {fileID: 8300000, guid: 2bc55f03ddfeeee4bbd43e34dcf3a1aa, type: 3}
   forwardSpeed: 7
   backwardSpeed: 2

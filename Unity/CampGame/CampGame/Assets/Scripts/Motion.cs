@@ -101,6 +101,7 @@ public class Motion : MonoBehaviour {
     } else if (player.GetComponent<PlayerStatus>().bulletCount < player.GetComponent<PlayerStatus>().maxBulletCount) {
       // 弾チャージ
       player.GetComponent<PlayerStatus>().bulletCount += reloadSpeed;
+      player.GetComponent<PlayerStatus>().bulletCount *= 1.020f;
     }
     // 跳ね返す
     if (isBounce) {
