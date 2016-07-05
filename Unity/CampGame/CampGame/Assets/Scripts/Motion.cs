@@ -1,8 +1,8 @@
 ﻿// TODO: アイテムで武器強化 or 武器変更
 // TODO: 左手モーション作成
 // TODO: 全体的なSE
-// TODO: シールド or HP回復
-// TODO: 水
+// TODO: シールド or HP回復 or 弾数ゲージ
+// TODO: レーザーポインタ
 
 using UnityEngine;
 using System.Collections;
@@ -14,12 +14,18 @@ public class Motion : MonoBehaviour {
   public GameObject player;
   // 弾オブジェクト
   public GameObject bullet;
+  // バウンスオブジェクト
+  public GameObject bounce;
   // 弾速
   public float bulletSpeed = 10000;
+  // バウンス弾速
+  public float bounceSpeed = 10000;
   // 銃声
   public AudioClip shootSE;
   // 撃てる
   private bool isShooot;
+  // 跳ね返せる
+  private bool isBounce;
   // 移動量
   private Vector3 velocity;
   // 前進速度
@@ -30,8 +36,12 @@ public class Motion : MonoBehaviour {
   public float rotateSpeed = 50.0f;
   // 発射間隔(秒)
   public float bulletTime = 0.1f;
+  // バウンス発射間隔(秒)
+  public float bounceTime = 1.0f;
   // 発射間隔用初期値
   private float nowTimeBullet = 0.0f;
+  // バウンス発射間隔用初期値
+  private float nowTimeBounce = 0.0f;
 
   // LeapMotion 呼び出し
   private Controller controller = new Controller();
@@ -75,7 +85,8 @@ public class Motion : MonoBehaviour {
     // 手の動きを検知
     checkMotion();
     // 弾発射
-    isShooot = checkForShoot();
+    isShooot = checkShoot();
+    isBounce = checkBounce();
   }
 
   void FixedUpdate() {
@@ -85,6 +96,13 @@ public class Motion : MonoBehaviour {
     if (isShooot) {
       shoot();
     } else {
+      // 弾チャージ？
+    }
+    // 跳ね返す
+    if (isBounce) {
+      bounceShoot();
+    } else {
+      // 弾チャージ？
     }
   }
 
@@ -97,7 +115,7 @@ public class Motion : MonoBehaviour {
         nowTimeBullet = 0;
         bulletEnable = true;
     }
-//    var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
+    // var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/palm");
     var rightHand = GameObject.Find("CleanRobotFullRightHand(Clone)/index/bone1");
     if (rightHand != null && bulletEnable) {
 
@@ -108,6 +126,29 @@ public class Motion : MonoBehaviour {
       var bulletCrone = GameObject.Instantiate(bullet, rightHand.transform.position, Quaternion.identity) as GameObject;
       // 前方にbulletSpeed分の力を加える
       bulletCrone.GetComponent<Rigidbody>().AddForce(rightHand.transform.forward * bulletSpeed);
+      // 銃SE
+      GetComponent<AudioSource>().PlayOneShot(shootSE, 0.1F);
+    }
+  }
+
+  // TODO: 未完成
+  void bounceShoot() {
+    // 弾の発射間隔
+    var bounceEnable = false;
+    // Time.deltaTimeには1秒を分割した数値が入る
+    nowTimeBounce += Time.deltaTime;
+    if (nowTimeBounce > bounceTime) {
+        nowTimeBounce = 0;
+        bounceEnable = true;
+    }
+    // var leftHand = GameObject.Find("CleanRobotFullLeftHand(Clone)/palm");
+    var leftHand = GameObject.Find("CleanRobotFullLeftHand(Clone)/index/bone3");
+    if (leftHand != null && bounceEnable) {
+      // 弾を発射(複製obj, obj位置, obj向き)
+      var bounceCrone = GameObject.Instantiate(bounce, leftHand.transform.position, Quaternion.identity) as GameObject;
+      // 前方にbounceSpeed分の力を加える
+      // bounceCrone.GetComponent<Rigidbody>().AddForce(leftHand.transform.forward * bounceSpeed);
+        bounceCrone.GetComponent<Rigidbody>().AddForce(leftHand.transform.forward * bounceSpeed, ForceMode.Acceleration);
       // 銃SE
       GetComponent<AudioSource>().PlayOneShot(shootSE, 0.1F);
     }
@@ -142,9 +183,14 @@ public class Motion : MonoBehaviour {
     }
   }
 
-  bool checkForShoot() {
+  bool checkShoot() {
 //    return rightFingerThumb && rightFingerIndex && rightFingerMiddle && rightFingerRing && rightFingerPinky;
       return rightFingerThumb && rightFingerIndex;
+  }
+
+  // TODO: トリガーはジェスチャーにするか未定
+  bool checkBounce() {
+      return leftFingerThumb && leftFingerIndex;
   }
 
   void checkMotion() {
