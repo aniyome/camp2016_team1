@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour {
   // Bulletの攻撃力
   public float damage = 3;
   // 自動削除されるまでの時間
-  public float destroyTime = 1;
+  public float destroyTime = 1.5f;
 
   void Start () {
     // 発射時エフェクト
