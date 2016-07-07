@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour {
 
@@ -40,8 +41,8 @@ public class PlayerStatus : MonoBehaviour {
 		HP = HP - damage;
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
-			// TODO ゲームオーバー処理
-			Debug.Log("ゲームオーバー");
+			// ゲームオーバー
+			SceneManager.LoadScene ("game_over");
 		}
 	}
 }

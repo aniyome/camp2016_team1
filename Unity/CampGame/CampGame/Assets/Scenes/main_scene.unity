@@ -550,6 +550,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11473110, guid: 462ca2f1198ac4e24aaedd80dd03a4b0, type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 982143059}
+    - target: {fileID: 11473110, guid: 462ca2f1198ac4e24aaedd80dd03a4b0, type: 2}
+      propertyPath: MovementSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473110, guid: 462ca2f1198ac4e24aaedd80dd03a4b0, type: 2}
+      propertyPath: ApproachSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473110, guid: 462ca2f1198ac4e24aaedd80dd03a4b0, type: 2}
+      propertyPath: ApproachPlayerDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 462ca2f1198ac4e24aaedd80dd03a4b0, type: 2}
   m_IsPrefabParent: 0
@@ -729,6 +745,22 @@ Prefab:
     - target: {fileID: 447660, guid: 3ba0818550e1848368d55f571d9c2573, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496910, guid: 3ba0818550e1848368d55f571d9c2573, type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 982143059}
+    - target: {fileID: 11496910, guid: 3ba0818550e1848368d55f571d9c2573, type: 2}
+      propertyPath: MovementSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496910, guid: 3ba0818550e1848368d55f571d9c2573, type: 2}
+      propertyPath: ApproachSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496910, guid: 3ba0818550e1848368d55f571d9c2573, type: 2}
+      propertyPath: ApproachPlayerDistance
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba0818550e1848368d55f571d9c2573, type: 2}
@@ -2238,6 +2270,22 @@ Prefab:
     - target: {fileID: 423844, guid: 13ed01ac1912f4f78821205fde25e52b, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460934, guid: 13ed01ac1912f4f78821205fde25e52b, type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 982143059}
+    - target: {fileID: 11460934, guid: 13ed01ac1912f4f78821205fde25e52b, type: 2}
+      propertyPath: MovementSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460934, guid: 13ed01ac1912f4f78821205fde25e52b, type: 2}
+      propertyPath: ApproachSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460934, guid: 13ed01ac1912f4f78821205fde25e52b, type: 2}
+      propertyPath: ApproachPlayerDistance
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13ed01ac1912f4f78821205fde25e52b, type: 2}
