@@ -149,7 +149,6 @@ public class AmaebiAnimation : MonoBehaviour {
 	// ランダムな目的地生成
 	private Vector3 GetRandomVector() {
 		NowPosition = transform.localPosition;
-		Debug.Log (NowPosition.y);
 		return new Vector3 ((NowPosition.x + Random.Range(-positionRandomRange, positionRandomRange)), 0, (NowPosition.z + Random.Range(-positionRandomRange, positionRandomRange)));
 	}
 }
