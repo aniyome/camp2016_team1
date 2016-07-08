@@ -2118,13 +2118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da2dbf8ac1a9914ca144eefce8cdeab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  bullet: {fileID: 0}
-  bounce: {fileID: 0}
+  player: {fileID: 982143059}
+  bullet: {fileID: 151466, guid: 4986f39f0bfce6242a431164816dbdb1, type: 2}
+  bounce: {fileID: 196056, guid: 26522c7f3eeffc240860b8c574b62fb0, type: 2}
   bulletSpeed: 10000
   bounceSpeed: 10000
   reloadSpeed: 0.05
-  shootSE: {fileID: 0}
+  shootSE: {fileID: 8300000, guid: 6c1759e6898ebfb488f5f687acf2b910, type: 3}
   forwardSpeed: 7
   backwardSpeed: 7
   rotateSpeed: 50
@@ -2217,11 +2217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4e0350c46ae405b8db39262c18b8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  separateLeftRight: 0
-  leftGraphicsModel: {fileID: 0}
-  leftPhysicsModel: {fileID: 0}
-  rightGraphicsModel: {fileID: 0}
-  rightPhysicsModel: {fileID: 0}
+  separateLeftRight: 1
+  leftGraphicsModel: {fileID: 11400000, guid: 9ae8a8acf486840e19397b18a914d915, type: 2}
+  leftPhysicsModel: {fileID: 11460542, guid: dc02f2d83c1ac4b4d9b4ec82df1b1732, type: 2}
+  rightGraphicsModel: {fileID: 11400010, guid: 0c6c9cacc3ef1487daa06cb206b2f421, type: 2}
+  rightPhysicsModel: {fileID: 11460542, guid: dc02f2d83c1ac4b4d9b4ec82df1b1732, type: 2}
   handParent: {fileID: 0}
   toolModel: {fileID: 0}
   isHeadMounted: 0
