@@ -25,7 +25,7 @@ public class EnemyManager : MonoBehaviour {
 
 		EnemyCount = EnemyObject.Length;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		// FindGameObject
@@ -33,7 +33,7 @@ public class EnemyManager : MonoBehaviour {
 		EnemyCount = EnemyObject.Length;
 
 		if (EnemyCount < MinimumCount) {
-			Instantiate(AddEnemyObject);
+			GameObject.Instantiate(AddEnemyObject, new Vector3(0, 0, 0), Quaternion.identity);
 		}
 	}
 }
