@@ -41,8 +41,6 @@ public class GameManager : MonoBehaviour {
   }
 
   void Update () {
-	// TimeCount
-	time += Time.deltaTime;	
     // 手の動きを検知
     checkMotion();
     // play画面に遷移
@@ -50,11 +48,15 @@ public class GameManager : MonoBehaviour {
       // SceneManager.LoadScene ("kuma_scene", LoadSceneMode.Single);
       SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
     }
-	if (handsCount > 0 && Application.loadedLevelName == "game_over") {
-			if (time > 5) {
-				SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
-			}	
-	}
+
+    // TimeCount
+    time += Time.deltaTime;
+
+    if (handsCount > 0 && Application.loadedLevelName == "game_over") {
+      if (time > 5) {
+        SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
+      }
+    }
   }
 
   void checkMotion() {
