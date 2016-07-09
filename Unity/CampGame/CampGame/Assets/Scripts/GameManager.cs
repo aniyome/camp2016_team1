@@ -45,17 +45,18 @@ public class GameManager : MonoBehaviour {
   }
 
   void Update () {
-    // 手が認識されたらstart
-    if (handsCount > 0 && Application.loadedLevelName == "main_scene") {
-      Time.timeScale = 1;
-    }
-
     // 手の動きを検知
     checkMotion();
+
     // play画面に遷移
     if (handsCount > 0 && Application.loadedLevelName == "opening") {
       // SceneManager.LoadScene ("kuma_scene", LoadSceneMode.Single);
       SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
+    }
+
+    // 手が認識されたらstart
+    if (handsCount > 0 && Application.loadedLevelName == "main_scene") {
+      Time.timeScale = 1;
     }
 
     // TimeCount
