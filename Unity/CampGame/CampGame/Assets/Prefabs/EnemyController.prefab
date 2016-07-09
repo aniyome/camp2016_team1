@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1038fcc041710488abe68cfee9b3bfb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddEnemyObject: {fileID: 0}
-  BossEnemyObject: {fileID: 0}
+  AddEnemyObject: {fileID: 115664, guid: 2c239fee3b512481292967235ec972e3, type: 2}
+  BossEnemyObject: {fileID: 134084, guid: 13b42b1e771574d638a4f7311dd61705, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

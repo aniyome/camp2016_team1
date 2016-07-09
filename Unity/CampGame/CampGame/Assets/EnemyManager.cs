@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour {
 	public GameObject BossEnemyObject;
 
 	// minimum enemy count
-	private float MinimumCount = 10;
+	public float MinimumCount = 10;
 
 	// enemy count
 	private int EnemyCount;

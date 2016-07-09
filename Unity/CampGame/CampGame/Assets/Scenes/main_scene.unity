@@ -224,10 +224,6 @@ Transform:
   - {fileID: 1762511711}
   m_Father: {fileID: 0}
   m_RootOrder: 8
---- !u!1 &569791255 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 175238, guid: 99d9f46cd6ed54f83b6d761ac04c89b9, type: 2}
-  m_PrefabInternal: {fileID: 1106321807}
 --- !u!1001 &619891274
 Prefab:
   m_ObjectHideFlags: 0
@@ -794,7 +790,7 @@ Prefab:
     - target: {fileID: 11430630, guid: 9aabc714af3144c588c87d8222724735, type: 2}
       propertyPath: AddEnemyObject
       value: 
-      objectReference: {fileID: 569791255}
+      objectReference: {fileID: 115664, guid: 2c239fee3b512481292967235ec972e3, type: 2}
     - target: {fileID: 11430630, guid: 9aabc714af3144c588c87d8222724735, type: 2}
       propertyPath: BossEnemyObject
       value: 
