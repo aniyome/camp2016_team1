@@ -47,6 +47,9 @@ public class CanvasController : MonoBehaviour {
 	// Max弾数
 	private float MaxBulletCount;
 
+	// Bullet Slider
+	private Slider BulletSlider;
+
 	// boss flag
 	private bool BossFlag = false;
 
@@ -65,7 +68,9 @@ public class CanvasController : MonoBehaviour {
 		// Destroy(transform.FindChild("BlackImage").gameObject, 3.0f);
 		Destroy(transform.FindChild("BlackImage").gameObject);
 		// 弾数を表示
-		BulletLabel.text = "Bullet:" + ((int)Player.GetComponent<PlayerStatus>().bulletCount) + "/" + Player.GetComponent<PlayerStatus>().maxBulletCount;
+		BulletSlider = GameObject.Find("BulletSlider").GetComponent<Slider>();
+		BulletSlider.maxValue = Player.GetComponent<PlayerStatus>().maxBulletCount;
+		BulletSlider.value = ((int)Player.GetComponent<PlayerStatus>().bulletCount);
 	}
 	
 	// Update is called once per frame
@@ -77,7 +82,8 @@ public class CanvasController : MonoBehaviour {
 		HealthBar.GetComponent<IconProgressBar>().CurrentValue = Player.GetComponent<PlayerStatus>().HP;
 
 		// プレイヤーの弾数を表示
-		BulletLabel.text = "Bullet:" + ((int)Player.GetComponent<PlayerStatus>().bulletCount) + "/" + Player.GetComponent<PlayerStatus>().maxBulletCount;
+		BulletSlider.maxValue = Player.GetComponent<PlayerStatus>().maxBulletCount;
+		BulletSlider.value = ((int)Player.GetComponent<PlayerStatus>().bulletCount);
 
 		// 制限時間を表示
 		TimeLimit -= Time.deltaTime;
