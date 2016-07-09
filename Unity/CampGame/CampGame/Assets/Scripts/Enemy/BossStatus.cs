@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossStatus : MonoBehaviour {
 	// 最大HP
@@ -25,6 +26,9 @@ public class BossStatus : MonoBehaviour {
 
 	// MP
 	private float MP;
+
+	// Use this ending start waiting
+	private float EndingWaitingTime = 0;
 
 	// キャンパスコントローラ
 	private GameObject CanvasController;
@@ -54,10 +58,10 @@ public class BossStatus : MonoBehaviour {
 
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
-			CanvasController.SendMessage("addScore" , Score);
+			// Ending
 			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-			Destroy(destroyObj, 3.0f);
-			Destroy(this.gameObject);
+			Destroy(destroyObj, 5.0f);
+			SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
 		}
 	}
 
