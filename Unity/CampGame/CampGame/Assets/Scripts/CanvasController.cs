@@ -20,9 +20,6 @@ public class CanvasController : MonoBehaviour {
 	// プレイヤーオブジェクト
 	public GameObject Player;
 
-	// EnenyManager
-	public GameObject EnemyManager;
-
 	// メインカメラオブジェクト
 	public GameObject MainCamera;
 
@@ -36,16 +33,13 @@ public class CanvasController : MonoBehaviour {
 	public float BossLimitScore;
 
 	// 制限時間
-	public static float TimeLimit;
+	public static float TimeLimit = 300;
 
 	// スコア
-	public static float Score;
+	public static float Score = 0;
 
 	// プレイヤーのHP
 	public static float PlayerHP;
-
-	// 残り時間
-	public static float RemainingTime;
 
 	// 残り弾数
 	public static float BulletCount;
@@ -59,14 +53,12 @@ public class CanvasController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		// 初期スコアセット
-		Score = 0;
 		ScoreLabel.text = "Score:" + Score.ToString();
 		// プレイヤーの初期HP取得
 		PlayerHP = Player.GetComponent<PlayerStatus>().MaxHP;
 		HealthBar.GetComponent<IconProgressBar>().CurrentValue = PlayerHP;
 		// 残り時間セット
-		RemainingTime = TimeLimit;
-		TimerLabel.text = "Time:" + ((int)RemainingTime).ToString();
+		TimerLabel.text = "Time:" + ((int)TimeLimit).ToString();
 		// 一定時間後にMissionTextを消去
 		Destroy(MissionText, 3.0f);
 		// 弾数を表示
@@ -85,15 +77,15 @@ public class CanvasController : MonoBehaviour {
 		BulletLabel.text = "Bullet:" + ((int)Player.GetComponent<PlayerStatus>().bulletCount) + "/" + Player.GetComponent<PlayerStatus>().maxBulletCount;
 
 		// 制限時間を表示
-		RemainingTime -= Time.deltaTime;
-		if (RemainingTime < 0) {
+		TimeLimit -= Time.deltaTime;
+		if (TimeLimit < 0) {
 			// 0秒以下は表示しない
-			RemainingTime = 0;
+			TimeLimit = 0;
 		}
-		TimerLabel.text = "Time:" + ((int)RemainingTime).ToString();
+		TimerLabel.text = "Time:" + ((int)TimeLimit).ToString();
 
 		// 制限時間が0になった時にゲーム終了処理
-		if (RemainingTime == 0) {
+		if (TimeLimit == 0) {
 			// TODO ゲーム終了処理
 		}
 	}
