@@ -32,16 +32,16 @@ public class CanvasController : MonoBehaviour {
 	public float TimeLimit;
 
 	// スコア
-	private float Score;
+	public static float Score;
 
 	// プレイヤーのHP
-	private float PlayerHP;
+	public static float PlayerHP;
 
 	// 残り時間
-	private float RemainingTime;
+	public static float RemainingTime;
 
 	// 残り弾数
-	private float BulletCount;
+	public static float BulletCount;
 
 	// Max弾数
 	private float MaxBulletCount;
