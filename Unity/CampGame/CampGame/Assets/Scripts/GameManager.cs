@@ -55,13 +55,13 @@ public class GameManager : MonoBehaviour {
     checkMotion();
 
     // play画面に遷移
-    if (Input.GetKeyDown("space") || (handsCount > 0 && Application.loadedLevelName == "opening")) {
+    if (handsCount > 0 && Application.loadedLevelName == "opening") {
       // SceneManager.LoadScene ("kuma_scene", LoadSceneMode.Single);
       SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
     }
 
     // 手が認識されたらstart
-    if (typeSwipe && Application.loadedLevelName == "main_scene") {
+    if ((typeSwipe && Application.loadedLevelName == "main_scene") || Input.GetKeyDown("space")) {
         Time.timeScale = 1;
     }
 
