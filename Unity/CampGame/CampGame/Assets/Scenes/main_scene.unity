@@ -108,6 +108,13 @@ MonoBehaviour:
   backwardSpeed: 2
   rotateSpeed: 2
   jumpPower: 3
+  col: {fileID: 0}
+  rb: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  orgColHight: 0
+  orgVectColCenter: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  cameraObject: {fileID: 0}
 --- !u!4 &28686587 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400100, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 2}
@@ -1664,11 +1671,30 @@ MonoBehaviour:
   bounceSpeed: 10000
   reloadSpeed: 0.05
   shootSE: {fileID: 8300000, guid: 6c1759e6898ebfb488f5f687acf2b910, type: 3}
+  isShooot: 0
+  isShotGun: 0
+  isBounce: 0
+  velocity: {x: 0, y: 0, z: 0}
   forwardSpeed: 7
   backwardSpeed: 7
   rotateSpeed: 50
   bulletTime: 0.1
   bounceTime: 1
+  nowTimeBullet: 0
+  nowTimeBounce: 0
+  handsCount: 0
+  handFingersCount: 0
+  fingersExtendedCount: 0
+  rightFingerThumb: 0
+  rightFingerIndex: 0
+  rightFingerMiddle: 0
+  rightFingerRing: 0
+  rightFingerPinky: 0
+  leftFingerThumb: 0
+  leftFingerIndex: 0
+  leftFingerMiddle: 0
+  leftFingerRing: 0
+  leftFingerPinky: 0
 --- !u!82 &1330338404
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1771,6 +1797,7 @@ MonoBehaviour:
   recordingAsset: {fileID: 0}
   recorderSpeed: 1
   recorderLoop: 1
+  flag_initialized_: 0
 --- !u!1001 &1567451244
 Prefab:
   m_ObjectHideFlags: 0
