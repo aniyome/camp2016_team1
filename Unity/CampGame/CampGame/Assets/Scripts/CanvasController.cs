@@ -11,9 +11,6 @@ public class CanvasController : MonoBehaviour {
 	// 制限時間ラベルオブジェクト
 	public UnityEngine.UI.Text TimerLabel;
 
-	// 残り弾薬表示オブジェクト
-	public UnityEngine.UI.Text BulletLabel;
-
 	// ダメージエフェクト
 	public UnityEngine.UI.Image DamageEffect;
 
