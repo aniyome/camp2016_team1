@@ -31,6 +31,9 @@ public class EnemyStatus : MonoBehaviour {
 	// キャンパスコントローラ
 	private GameObject CanvasController;
 
+	// HitPointSlider
+	private Slider HitPointSlider;
+
 	// Use this for initialization
 	void Start () {
 		// MaxHPを現在のHPに設定
@@ -38,11 +41,17 @@ public class EnemyStatus : MonoBehaviour {
 
 		// キャンパスコントローラ
 		CanvasController = GameObject.Find("Canvas");
+
+		// HP Slider
+		HitPointSlider = GameObject.Find("Slider").GetComponent<Slider>();
+		HitPointSlider.maxValue = MaxHP;
+		HitPointSlider.value = HP;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		HitPointSlider.maxValue = MaxHP;
+		HitPointSlider.value = HP;
 	}
 
 	// ダメージ計算処理
@@ -65,7 +74,6 @@ public class EnemyStatus : MonoBehaviour {
 
 	// 接触判定(接触オブジェクト)
 	void OnTriggerEnter (Collider other) {
-
 		// EnemyならDamage
 		if (other.tag == "Player") {
 			// (関数名, 値)

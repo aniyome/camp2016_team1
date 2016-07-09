@@ -33,28 +33,46 @@ public class GameManager : MonoBehaviour {
   private bool leftFingerRing = false;
   // 小指(左)
   private bool leftFingerPinky = false;
+  // サークル
+  private bool typeCircle = false;
+  // タップ
+  private bool typeScreentap = false;
+  // スワイプ
+  private bool typeSwipe = false;
 
 	// scene time
 	private float time = 0;
 
   void Start () {
+    // 遷移時に時間を止める
+    if (Application.loadedLevelName == "main_scene") {
+      Time.timeScale = 0;
+    }
   }
 
   void Update () {
-	// TimeCount
-	time += Time.deltaTime;	
     // 手の動きを検知
     checkMotion();
+
     // play画面に遷移
     if (handsCount > 0 && Application.loadedLevelName == "opening") {
       // SceneManager.LoadScene ("kuma_scene", LoadSceneMode.Single);
       SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
     }
-	if (handsCount > 0 && Application.loadedLevelName == "game_over") {
-			if (time > 5) {
-				SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
-			}	
-	}
+
+    // 手が認識されたらstart
+    if (typeSwipe && Application.loadedLevelName == "main_scene") {
+        Time.timeScale = 1;
+    }
+
+    // TimeCount
+    time += Time.deltaTime;
+
+    if (handsCount > 0 && Application.loadedLevelName == "game_over") {
+      if (time > 5) {
+        SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
+      }
+    }
   }
 
   void checkMotion() {
@@ -85,8 +103,21 @@ public class GameManager : MonoBehaviour {
     leftFingerRing = false;
     // 小指(左)
     leftFingerPinky = false;
+    // サークル
+    typeCircle = false;
 
     var frame = controller.Frame();
+
+    var gestures = frame.Gestures();
+
+    // サークル
+    typeCircle = gestures[0].Type == Gesture.GestureType.TYPECIRCLE;
+    // タップ
+    typeScreentap = gestures[0].Type == Gesture.GestureType.TYPESCREENTAP;
+    // スワイプ
+    typeSwipe = gestures[0].Type == Gesture.GestureType.TYPE_SWIPE;
+
+
     HandList hands = frame.Hands;
     handsCount = hands.Count;
     // 手の検知
