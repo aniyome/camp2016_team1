@@ -60,7 +60,10 @@ public class CanvasController : MonoBehaviour {
 		// 残り時間セット
 		TimerLabel.text = "Time:" + ((int)TimeLimit).ToString();
 		// 一定時間後にMissionTextを消去
-		Destroy(MissionText, 3.0f);
+		// Destroy(MissionText, 3.0f);
+		Destroy(MissionText);
+		// Destroy(transform.FindChild("BlackImage").gameObject, 3.0f);
+		Destroy(transform.FindChild("BlackImage").gameObject);
 		// 弾数を表示
 		BulletLabel.text = "Bullet:" + ((int)Player.GetComponent<PlayerStatus>().bulletCount) + "/" + Player.GetComponent<PlayerStatus>().maxBulletCount;
 	}

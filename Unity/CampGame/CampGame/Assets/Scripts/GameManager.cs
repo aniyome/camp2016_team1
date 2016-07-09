@@ -38,9 +38,18 @@ public class GameManager : MonoBehaviour {
 	private float time = 0;
 
   void Start () {
+    // 遷移時に時間を止める
+    if (Application.loadedLevelName == "main_scene") {
+      Time.timeScale = 0;
+    }
   }
 
   void Update () {
+    // 手が認識されたらstart
+    if (handsCount > 0 && Application.loadedLevelName == "main_scene") {
+      Time.timeScale = 1;
+    }
+
     // 手の動きを検知
     checkMotion();
     // play画面に遷移
