@@ -42,7 +42,7 @@ public class CanvasController : MonoBehaviour {
 	public static float BulletCount;
 
 	// Max弾数
-	private float MaxBulletCount;
+	public static float MaxBulletCount;
 
 	// Bullet Slider
 	private Slider BulletSlider;
