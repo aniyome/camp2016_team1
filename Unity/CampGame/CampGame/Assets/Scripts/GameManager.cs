@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
       SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
     }
 	if (handsCount > 0 && Application.loadedLevelName == "game_over") {
-		SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
+//		SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
 	}
   }
 

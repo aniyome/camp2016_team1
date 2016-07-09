@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/testscene.unity
   - enabled: 1
     path: Assets/Scenes/main_scene.unity
+  - enabled: 1
+    path: Assets/Scenes/game_over.unity

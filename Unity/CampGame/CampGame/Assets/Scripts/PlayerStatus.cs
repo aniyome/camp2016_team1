@@ -42,7 +42,7 @@ public class PlayerStatus : MonoBehaviour {
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
 			// ゲームオーバー
-			SceneManager.LoadScene ("game_over");
+			SceneManager.LoadScene ("game_over", LoadSceneMode.Single);
 		}
 	}
 }
