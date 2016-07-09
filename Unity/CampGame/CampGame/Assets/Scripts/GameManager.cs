@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour {
   private bool leftFingerRing = false;
   // 小指(左)
   private bool leftFingerPinky = false;
+  // サークル
+  private bool typeCircle = false;
+  // タップ
+  private bool typeScreentap = false;
+  // スワイプ
+  private bool typeSwipe = false;
 
 	// scene time
 	private float time = 0;
@@ -55,8 +61,8 @@ public class GameManager : MonoBehaviour {
     }
 
     // 手が認識されたらstart
-    if (handsCount > 0 && Application.loadedLevelName == "main_scene") {
-      Time.timeScale = 1;
+    if (typeSwipe && Application.loadedLevelName == "main_scene") {
+        Time.timeScale = 1;
     }
 
     // TimeCount
@@ -97,8 +103,21 @@ public class GameManager : MonoBehaviour {
     leftFingerRing = false;
     // 小指(左)
     leftFingerPinky = false;
+    // サークル
+    typeCircle = false;
 
     var frame = controller.Frame();
+
+    var gestures = frame.Gestures();
+
+    // サークル
+    typeCircle = gestures[0].Type == Gesture.GestureType.TYPECIRCLE;
+    // タップ
+    typeScreentap = gestures[0].Type == Gesture.GestureType.TYPESCREENTAP;
+    // スワイプ
+    typeSwipe = gestures[0].Type == Gesture.GestureType.TYPE_SWIPE;
+
+
     HandList hands = frame.Hands;
     handsCount = hands.Count;
     // 手の検知
