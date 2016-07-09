@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour {
 
@@ -19,6 +20,9 @@ public class CanvasController : MonoBehaviour {
 	// プレイヤーオブジェクト
 	public GameObject Player;
 
+	// EnenyManager
+	public GameObject EnemyManager;
+
 	// メインカメラオブジェクト
 	public GameObject MainCamera;
 
@@ -28,8 +32,11 @@ public class CanvasController : MonoBehaviour {
 	// 寿司を倒せのテキスト
 	public GameObject MissionText;
 
+	// Boss Score
+	public float BossLimitScore;
+
 	// 制限時間
-	public float TimeLimit;
+	public static float TimeLimit;
 
 	// スコア
 	public static float Score;
@@ -45,6 +52,9 @@ public class CanvasController : MonoBehaviour {
 
 	// Max弾数
 	private float MaxBulletCount;
+
+	// boss flag
+	private bool BossFlag = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -91,6 +101,10 @@ public class CanvasController : MonoBehaviour {
 	// スコア加算処理
 	public void addScore(float point) {
 		Score += point;
+		if (Score >= BossLimitScore && !BossFlag) {
+			BossFlag = true;
+			SceneManager.LoadScene ("boss_scene", LoadSceneMode.Single);
+		}
 	}
 
 	// ダメージエフェクト処理

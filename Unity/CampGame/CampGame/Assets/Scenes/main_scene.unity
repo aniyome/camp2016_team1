@@ -2377,6 +2377,10 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11410068, guid: 1d89eb66390d8425db894b3529a1f381, type: 2}
+      propertyPath: BossLimitScore
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d89eb66390d8425db894b3529a1f381, type: 2}
   m_IsPrefabParent: 0
