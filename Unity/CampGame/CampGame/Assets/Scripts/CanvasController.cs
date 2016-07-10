@@ -101,7 +101,9 @@ public class CanvasController : MonoBehaviour {
 		Score += point;
 		if (Score >= BossLimitScore && !BossFlag) {
 			BossFlag = true;
-			SceneManager.LoadScene ("boss_scene", LoadSceneMode.Single);
+			if (Application.loadedLevelName == "main_scene") {
+				SceneManager.LoadScene ("boss_scene", LoadSceneMode.Single);
+			}
 		}
 	}
 

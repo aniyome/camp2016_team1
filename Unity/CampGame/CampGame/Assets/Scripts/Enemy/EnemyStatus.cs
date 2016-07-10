@@ -75,7 +75,7 @@ public class EnemyStatus : MonoBehaviour {
 			CanvasController.SendMessage("addScore" , Score);
 			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
 			Destroy(destroyObj, 0.5f);
-			Destroy(this.gameObject);
+			Destroy(gameObject);
 		}
 	}
 

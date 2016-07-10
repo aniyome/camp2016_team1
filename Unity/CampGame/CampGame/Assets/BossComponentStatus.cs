@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
-public class BossStatus : MonoBehaviour {
+public class BossComponentStatus : MonoBehaviour {
+
+
 	// 最大HP
-	public float MaxHP = 1000;
+	public float MaxHP = 100;
 
 	// 最大MP
 	public float MaxMP = 100;
@@ -27,9 +28,6 @@ public class BossStatus : MonoBehaviour {
 	// MP
 	private float MP;
 
-	// Use this ending start waiting
-	private bool GameClearFlag = false;
-
 	// キャンパスコントローラ
 	private GameObject CanvasController;
 
@@ -41,10 +39,10 @@ public class BossStatus : MonoBehaviour {
 		// キャンパスコントローラ
 		CanvasController = GameObject.Find("Canvas");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	// ダメージ計算処理
@@ -53,38 +51,26 @@ public class BossStatus : MonoBehaviour {
 		HP = HP - damage;
 
 		// ダメージを受けた時にエフェクトを発生
-		var obj = GameObject.Instantiate(DamageEffect, transform.position, Quaternion.identity);
-		Destroy(obj, 0.5f);
+		var obj = GameObject.Instantiate(DamageEffect, transform.localPosition, Quaternion.identity);
+		Destroy(obj, 0.1f);
 
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
-			// Ending
-			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-			Destroy(destroyObj, 10.0f);
-
-			SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
-
-//			if (!GameClearFlag) {
-//				GameClearFlag = true;
-//				GameClear ();
-//			}
+			CanvasController.SendMessage("addScore" , Score);
+			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.localPosition, Quaternion.identity);
+			Destroy(destroyObj, 0.5f);
+			Destroy(gameObject);
 		}
 	}
 
 	// 接触判定(接触オブジェクト)
 	void OnTriggerEnter (Collider other) {
-
 		// EnemyならDamage
 		if (other.tag == "Player") {
 			// (関数名, 値)
 			other.SendMessage("Damage", Attack);
 			CanvasController.SendMessage ("monitorFlash");
-			//			Destroy(this.gameObject);
+			Destroy(this.gameObject);
 		}
-	}
-
-	private IEnumerator GameClear() {
-		yield return new WaitForSeconds(10);
-		SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
 	}
 }
