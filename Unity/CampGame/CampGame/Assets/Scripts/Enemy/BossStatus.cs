@@ -60,16 +60,16 @@ public class BossStatus : MonoBehaviour {
 		if (HP <= 0) {
 			// Ending
 			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-			Destroy(destroyObj, 10.0f);
-
-			SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
-
-//			if (!GameClearFlag) {
-//				GameClearFlag = true;
-//				GameClear ();
-//			}
+     Time.timeScale = 0.5f;
+			Destroy(destroyObj, 1.5f);
+     StartCoroutine("sleep");
 		}
 	}
+
+  IEnumerator sleep() {
+    yield return new WaitForSeconds(1.5f);
+    SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
+  }
 
 	// 接触判定(接触オブジェクト)
 	void OnTriggerEnter (Collider other) {
@@ -81,10 +81,5 @@ public class BossStatus : MonoBehaviour {
 			CanvasController.SendMessage ("monitorFlash");
 			//			Destroy(this.gameObject);
 		}
-	}
-
-	private IEnumerator GameClear() {
-		yield return new WaitForSeconds(10);
-		SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
 	}
 }
