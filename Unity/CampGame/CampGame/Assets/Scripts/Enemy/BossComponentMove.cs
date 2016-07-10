@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BossSushiMove : MonoBehaviour {
+public class BossComponentMove : MonoBehaviour {
 
 
 	// ----- プロパティ ------ //
@@ -16,7 +16,10 @@ public class BossSushiMove : MonoBehaviour {
 	public float RotationSmooth = 100;
 
 	// プレイヤーに近づいてくる設定距離
-	public float ApproachPlayerDistance = 10;
+	public float ApproachPlayerDistance = 16;
+
+	// RamdomValue
+	public float RandomApproachValue = 0;
 
 	// 目標地点の位置
 	private Vector3 TargetPosition;
@@ -30,6 +33,9 @@ public class BossSushiMove : MonoBehaviour {
 	// 現在の移動速度
 	private float NowSpeed;
 
+	// ApproashMoveFlag
+	private bool ApproachMoveFlag = false;
+
 	// ----- Public関数 ------ //
 
 	// オブジェクト生成時に呼び出される処理
@@ -40,8 +46,15 @@ public class BossSushiMove : MonoBehaviour {
 
 	// 常に呼び出される処理
 	public void Update() {
+		// lottery
+		if ((Random.value + Random.value + Random.value) < RandomApproachValue) {
+			ApproachMoveFlag = true;
+		}
+
 		// approach
-		ApproachMove ();
+		if (ApproachMoveFlag) {
+			ApproachMove ();
+		}
 	}
 
 	// ----- 以下はPrivate関数 ----- //
