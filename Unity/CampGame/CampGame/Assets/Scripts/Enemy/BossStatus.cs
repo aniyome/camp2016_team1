@@ -28,7 +28,7 @@ public class BossStatus : MonoBehaviour {
 	private float MP;
 
 	// Use this ending start waiting
-	private float EndingWaitingTime = 0;
+	private bool GameClearFlag = false;
 
 	// キャンパスコントローラ
 	private GameObject CanvasController;
@@ -60,8 +60,12 @@ public class BossStatus : MonoBehaviour {
 		if (HP <= 0) {
 			// Ending
 			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-			Destroy(destroyObj, 5.0f);
-			SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
+			Destroy(destroyObj, 10.0f);
+
+			if (!GameClearFlag) {
+				GameClearFlag = true;
+				GameClear ();
+			}
 		}
 	}
 
@@ -75,5 +79,10 @@ public class BossStatus : MonoBehaviour {
 			CanvasController.SendMessage ("monitorFlash");
 			//			Destroy(this.gameObject);
 		}
+	}
+
+	private IEnumerator GameClear() {
+		yield return new WaitForSeconds(10);
+		SceneManager.LoadScene ("game_clear", LoadSceneMode.Single);
 	}
 }
