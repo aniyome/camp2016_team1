@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour {
   // スワイプ
   private bool typeSwipe = false;
 
+  // openin se
+  public AudioClip openingSE;
+
 	// scene time
 	private float time = 0;
 
@@ -56,12 +59,15 @@ public class GameManager : MonoBehaviour {
 
     // play画面に遷移
     if (handsCount > 0 && Application.loadedLevelName == "opening") {
+      // SE
+      GetComponent<AudioSource>().PlayOneShot(openingSE, 1.0f);
+      StartCoroutine("sleep");
       // SceneManager.LoadScene ("kuma_scene", LoadSceneMode.Single);
       SceneManager.LoadScene ("main_scene", LoadSceneMode.Single);
     }
 
     // 手が認識されたらstart
-    if ((typeSwipe && Application.loadedLevelName == "main_scene") || Input.GetKeyDown("space")) {
+    if ((typeScreentap && Application.loadedLevelName == "main_scene") || Input.GetKeyDown("space")) {
         Time.timeScale = 1;
     }
 
