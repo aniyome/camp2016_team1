@@ -34,6 +34,9 @@ public class EnemyStatus : MonoBehaviour {
 	// HitPointSlider
 	private Slider HitPointSlider;
 
+  // se
+  public AudioClip SE;
+
 	// Use this for initialization
 	void Start () {
 		// MaxHPを現在のHPに設定
@@ -65,6 +68,10 @@ public class EnemyStatus : MonoBehaviour {
 
 		// HPが無くなった場合の処理
 		if (HP <= 0) {
+
+    // 爆破音
+//      GetComponent<AudioSource>().PlayOneShot(SE, 2.0F);
+
 			CanvasController.SendMessage("addScore" , Score);
 			var destroyObj = GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
 			Destroy(destroyObj, 0.5f);

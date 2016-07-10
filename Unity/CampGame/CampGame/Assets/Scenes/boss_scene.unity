@@ -1919,6 +1919,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &92417275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6828,6 +6829,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &338703310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7212,6 +7214,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &453690250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7868,6 +7871,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &607947240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8367,6 +8371,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &684052175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11436,7 +11441,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c3da0dbc6b8b26047866efa94fd049be, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8c05bfd6c74a98346aee48b027005f9a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -11604,6 +11609,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &790336533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13505,6 +13511,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1011561309
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13687,6 +13694,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1084330858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13782,6 +13790,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1129972544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13912,6 +13921,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1139675732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14042,6 +14052,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1173539065
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14571,6 +14582,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1485971132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14958,6 +14970,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1607728234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18499,6 +18512,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1742682430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18792,6 +18806,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &1918802078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19071,6 +19086,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &2006278458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19201,6 +19217,7 @@ MonoBehaviour:
   Score: 10
   DamageEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   DestroyEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  SE: {fileID: 0}
 --- !u!65 &2074291832
 BoxCollider:
   m_ObjectHideFlags: 0
