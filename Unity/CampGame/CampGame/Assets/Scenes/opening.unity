@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50174c103ff4f3841950936ae2760963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movie: {fileID: 15200000, guid: 233d2a2c9d025e64bb246d6d666ab496, type: 3}
+  movie: {fileID: 15200000, guid: 2017172d2d171754cb46edf07eead236, type: 3}
 --- !u!114 &1499051767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 15200000, guid: 233d2a2c9d025e64bb246d6d666ab496, type: 3}
+  m_Texture: {fileID: 15200000, guid: 2017172d2d171754cb46edf07eead236, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -790,7 +790,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 233d2a2c9d025e64bb246d6d666ab496, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2017172d2d171754cb46edf07eead236, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
