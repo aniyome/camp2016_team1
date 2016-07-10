@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
     }
 
     // 手が認識されたらstart
-    if (typeSwipe && Application.loadedLevelName == "main_scene") {
+    if ((typeSwipe && Application.loadedLevelName == "main_scene") || Input.GetKeyDown("space")) {
         Time.timeScale = 1;
     }
 
