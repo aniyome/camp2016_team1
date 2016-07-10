@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 166040, guid: b3d04070c02c7ea44b87d056abdc82b7, type: 2}
-  damage: 20
+  damage: 10
   destroyTime: 1
 --- !u!135 &13592760
 SphereCollider:
