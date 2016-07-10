@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7e92864f6100a4fa52e52b92e84bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBulletCount: 40
+  maxBulletCount: 100
 --- !u!136 &13674096
 CapsuleCollider:
   m_ObjectHideFlags: 1
