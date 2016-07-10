@@ -1921,7 +1921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -6839,7 +6839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -7232,7 +7232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -7462,8 +7462,8 @@ MonoBehaviour:
   MaxMP: 100
   HP: 0
   MP: 0
-  maxBulletCount: 50
-  bulletCount: 50
+  maxBulletCount: 200
+  bulletCount: 200
 --- !u!82 &524235908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7905,7 +7905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -8213,7 +8213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5022eff1d74c779007c126c262bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 300
+  MaxHP: 1000
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -8292,7 +8292,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 638248191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 97.01}
+  m_LocalPosition: {x: 0, y: 0, z: 233}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -8413,7 +8413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -11651,7 +11651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -13569,7 +13569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -13760,7 +13760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -13856,7 +13856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -13987,7 +13987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -14118,7 +14118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -14706,7 +14706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -15110,7 +15110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -18668,7 +18668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -18966,7 +18966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -19254,7 +19254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
@@ -19385,7 +19385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb659b0e4ff94e83adf5d9ded0249f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 100
   MaxMP: 100
   Attack: 10
   Score: 10
