@@ -10,16 +10,16 @@ public class BossComponentMove : MonoBehaviour {
 	public GameObject Player;
 
 	// 通常の敵のスピード
-	public float MovementSpeed;
+	public float MovementSpeed = 18;
 
 	// 敵の曲がる速さ
 	public float RotationSmooth = 100;
 
 	// プレイヤーに近づいてくる設定距離
-	public float ApproachPlayerDistance = 16;
+	public float ApproachPlayerDistance = 20;
 
 	// RamdomValue
-	public float RandomApproachValue = 0;
+	public double RandomApproachValue = 0.1;
 
 	// 目標地点の位置
 	private Vector3 TargetPosition;
@@ -47,8 +47,10 @@ public class BossComponentMove : MonoBehaviour {
 	// 常に呼び出される処理
 	public void Update() {
 		// lottery
-		if ((Random.value + Random.value + Random.value) < RandomApproachValue) {
-			ApproachMoveFlag = true;
+		if (Random.value < RandomApproachValue && Random.value < RandomApproachValue) {
+			if (Random.value < RandomApproachValue) {
+				ApproachMoveFlag = true;	
+			}
 		}
 
 		// approach
